@@ -1,0 +1,108 @@
+1.vue
+  动画
+    animate.css
+
+    六个class
+    *-enter {}          /*初始样式*/
+    *-enter-active {}   /*过程样式*/
+    *-enter-to {}       /*结果样式*/
+
+    *-leave {}
+    *-leave-active {}
+    *-leave-to {}
+
+    <transition>        1对1
+    <transition-group>  v-for 强制加key
+
+    ---
+
+    修改class名字
+    :enter-class=xx
+    6个
+
+    ---
+
+    钩子
+    @before-enter
+    @enter
+    @after-enter
+    @enter-cancelled
+
+--------------------------------------------------------------------------------
+
+  测试
+  1.单元测试——vue组件(*.vue)
+  2.端到端测试——整个程序
+
+  测试用例：
+  输入->期待输出
+
+  *代码覆盖率
+  if(gender=='male'){
+    ....
+  }else if(gender=='female'){
+    ....
+  }else{
+
+  }
+
+--------------------------------------------------------------------------------
+//store.js
+
+import storeA from './a'
+import storeB from './b'
+
+let store=new Vuex.Store({
+  modules: {
+    a: storeA,
+    b: storeB
+  }
+});
+
+export default store
+
+---------------------
+//a.js
+import store from './store'
+
+let storeA={
+  actions: {
+    aaa(){
+
+    }
+  }
+};
+
+store.dispatch
+
+---------------------
+//b.js
+
+let storeB={
+  actions: {
+    bbb(){
+
+    }
+  }
+};
+
+--------------------------------------------------------------------------------
+
+1.vue本身动画机制
+  几个class、几个钩子
+  transition
+  transition-group
+
+  *vue2-animate
+
+2.测试
+  单元测试
+  测试集 > 测试项
+
+*3.e2e
+
+--------------------------------------------------------------------------------
+
+2.部署
+3.angular
+4.react

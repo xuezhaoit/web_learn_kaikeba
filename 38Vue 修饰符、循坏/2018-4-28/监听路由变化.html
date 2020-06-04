@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="div1">
+      <router-link to="/article/1">文章1</router-link>
+      <router-link to="/article/395">文章2</router-link>
+      <router-link to="/article/321">文章3</router-link>
+      <router-view></router-view>
+    </div>
+  </body>
+  <script>
+  let router=new VueRouter({
+    routes: [
+      {
+        path: '/article/:id',
+        component: {
+          template: '<div>文章ID：{{$route.params.id}}</div>',
+        }
+      }
+    ]
+  });
+
+  new Vue({
+    el: '#div1',
+    router,
+    watch: {
+      $route(newVal, oldVal){
+        console.log('从：', oldVal);
+        console.log('到：', newVal);
+      }
+    }
+  });
+  </script>
+</html>

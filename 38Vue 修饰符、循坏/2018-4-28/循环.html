@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      new Vue({
+        el: '#div1',
+        data: {
+          arr: [
+            {ID: 1, name: 'blue', pass: '123456'},
+            {ID: 3, name: 'zhangsan', pass: '5645'},
+            {ID: 4, name: 'lisi', pass: '4645'},
+            {ID: 7, name: 'wangwu', pass: '2132'},
+          ]
+        }
+      });
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <ul>
+        <li v-for="json in arr" :key="json.ID">名字：{{json.name}}，密码：{{json.pass}}</li>
+      </ul>
+    </div>
+  </body>
+</html>

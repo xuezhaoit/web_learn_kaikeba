@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script src="vue-router.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="div1">
+      <router-link to="/user/info">用户信息</router-link>
+      <router-link to="/user/avatar">修改头像</router-link>
+      <router-link to="/company/update">更新公司信息</router-link>
+      <router-link to="/company/show">公司展示</router-link>
+      <router-view></router-view>
+    </div>
+  </body>
+  <script>
+  let router=new VueRouter({
+    routes: [
+      {
+        path: '/user',
+        component: {template: '<div><h4>用户</h4><router-view></router-view></div>'},
+        children: [
+          {
+            path: 'info',
+            component: {template: '<span>用户信息</span>'},
+          },
+          {
+            path: 'avatar',
+            component: {template: '<span>头像</span>'},
+          }
+        ]
+      },
+      {
+        path: '/company',
+        component: {template: '<div><h4>公司</h4><router-view></router-view></div>'},
+        children: [
+          {
+            path: 'update',
+            component: {template: '<div>修改公司信息</div>'},
+          },
+          {
+            path: 'show',
+            component: {template: '<div>显示</div>'},
+          }
+        ]
+      }
+    ]
+  });
+
+  new Vue({
+    el: '#div1',
+    router
+  });
+  </script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      let vm=new Vue({
+        el: '#div1',        //根元素
+        data: {
+          txt: ''
+        }
+      });
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <input type="text" v-model="txt">
+      <input type="text" v-model="txt">
+      <span>{{txt}}</span>
+    </div>
+  </body>
+</html>

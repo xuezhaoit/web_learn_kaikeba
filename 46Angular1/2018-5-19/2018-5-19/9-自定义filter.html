@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="mod1">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .box {width:200px; height:200px; background:#CCC; border:1px solid black;}
+    </style>
+    <script src="angular.js" charset="utf-8"></script>
+    <script>
+    //1.声明组件
+    let mod=angular.module('mod1', []);
+
+    //2.给组件添加一个controller
+    mod.controller('ctrl1', function ($scope, $interval, $http){
+      $scope.arr=[
+        {name: 'blue', mobile: '18778935462'},
+        {name: '张三', mobile: '13125487893'},
+        {name: '李四', mobile: '15154879578'},
+      ];
+    });
+
+    mod.filter('a', function (){
+      return function (input, arg){
+        return input.substring(0,3)+'****'+input.substring(7);
+      };
+    });
+    </script>
+  </head>
+  <body>
+    <div ng-controller="ctrl1">
+      <ul>
+        <li ng-repeat="json in arr">{{json.name}}, {{json.mobile|a}}</li>
+      </ul>
+    </div>
+  </body>
+</html>

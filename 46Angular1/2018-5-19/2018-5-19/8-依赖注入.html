@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="mod1">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .box {width:200px; height:200px; background:#CCC; border:1px solid black;}
+    </style>
+    <script src="angular.js" charset="utf-8"></script>
+    <script>
+    //1.声明组件
+    let mod=angular.module('mod1', []);
+
+    //2.给组件添加一个controller
+    mod.controller('ctrl1', function ($scope, $interval, $http){
+      $scope.arr=[
+        {name: 'blue', birth: 1526536414},
+        {name: '张三', birth: 1326536414},
+        {name: '李四', birth: 1521536414},
+      ];
+    });
+    </script>
+  </head>
+  <body>
+    <div ng-controller="ctrl1">
+      <ul>
+        <li ng-repeat="json in arr">{{json.name}}, {{json.birth*1000|date:"yyyy-MM-dd"}}</li>
+      </ul>
+    </div>
+  </body>
+</html>

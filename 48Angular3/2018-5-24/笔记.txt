@@ -1,0 +1,45 @@
+再用vuex时,在modules里面的getters中用this.$store.dispatch时提示store未定义,但是在相应的vue页面中就可以用this.$store.dispatch,上次您说用this.dispatch就可以，但是提示this是undefined，没有用箭头函数
+
+const store
+
+--------------------------------------------------------------------------------
+
+Http——依赖项：
+1.向框架请求http依赖项
+  import {Http} from '@angular/http';
+  constructor(private http:Http){}
+
+2.注册依赖项
+
+Http模块跟其他模块(自己写的、第三方)：
+import {HttpModule} from '@angular/http'
+imports: [..., HttpModule]
+
+--------------------------------------------------------------------------------
+
+angular自带的http
+1.请求
+  this.http.get/post/...
+2.转成promise
+  this.http.get().toPromise()
+3.转换结果
+  this.http.get().toPromise().then(res=>{
+    res.json/text/...
+  });
+
+--------------------------------------------------------------------------------
+
+1.组件写法
+  component(*3)+module
+2.http用法
+  i.引用模块      module
+  ii.引入依赖项   component
+3.路由
+  Routes        路由表
+  RouterModule  模块
+    RouterModule.forRoot
+  ActivatedRoute  依赖项
+    Http
+  Params
+
+--------------------------------------------------------------------------------

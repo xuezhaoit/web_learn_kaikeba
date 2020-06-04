@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vue.js" charset="utf-8"></script>
+    <script>
+    window.onload=function (){
+      new Vue({
+        el: '#div1',
+        data: {
+          a: ''
+        },
+        computed: {
+          b(){
+            return this.a+'xxx';
+          }
+        },
+        watch: {
+          b(newVal, oldVal){
+            console.log(`a变了，从${oldVal}变成${newVal}`);
+          }
+        }
+      });
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+      <input type="text" v-model="a">
+    </div>
+  </body>
+</html>

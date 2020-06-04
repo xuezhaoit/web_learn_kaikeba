@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="mod1">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .box {width:200px; height:200px; background:#CCC; border:1px solid black;}
+    </style>
+    <script src="angular.js" charset="utf-8"></script>
+    <script>
+    //1.声明组件
+    let mod=angular.module('mod1', []);
+
+    //2.给组件添加一个controller
+    mod.controller('ctrl1', function ($scope, $http, $interval){
+      $scope.a=0;
+
+      /*setInterval(function (){
+        $scope.a++;
+        $scope.$apply();
+      }, 1000);*/
+
+      $interval(function (){
+        $scope.a++;
+      }, 1000);
+    });
+    </script>
+  </head>
+  <body>
+    <div ng-controller="ctrl1">
+      {{a}}
+    </div>
+  </body>
+</html>
